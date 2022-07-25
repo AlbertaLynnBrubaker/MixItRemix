@@ -1,6 +1,6 @@
 import {useState} from "react";
 import Header from "./Header"
-import Sidebar, {SidebarOpen} from "./Sidebar";
+import Sidebar from "./Sidebar";
 
 import './App.css';
 
@@ -15,10 +15,18 @@ function App() {
   const handleFormSelect = (e) => {
     setSelectForm(() => e.target.name)
   }
+
+  const handleFetchSubmission = (newSubmission) => {
+    console.log(newSubmission)
+  }
   
   return (
     <div className="App">
-      <Header selectForm={selectForm}/>
+      <Header 
+        toggleNavStatus={toggleNavStatus} 
+        selectForm={selectForm}
+        onFetchSubmission={handleFetchSubmission}
+      />
       <Sidebar 
         toggleNavStatus={toggleNavStatus} 
         onSidebarOpen= {handleSidebarOpen}

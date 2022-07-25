@@ -48,7 +48,7 @@ const Sidebar = ({onFormSelect, toggleNavStatus, onSidebarOpen}) => {
       <div 
         onClick={toggleNav} 
         className= {toggleNavStatus ? "btn-toggle-nav-open": "btn-toggle-nav-closed"}
-      >  
+      >
       </div>
       <nav className={toggleNavStatus ? "sidebar-open" : "sidebar-closed"} >
         {toggleNavStatus ? <SidebarOpen onFormSelect={onFormSelect}/> : null}
