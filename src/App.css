@@ -139,3 +139,8 @@ header.main {
 .sidebar-open ul li button:hover {
   background-color: #3c1518;
 }
+
+.search {
+  height: 25px;
+  display: block;
+}
