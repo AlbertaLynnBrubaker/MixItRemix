@@ -1,38 +1,141 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #f3e2ae;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  font-family: 'Berkshire Swash';
+  color: #fff
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header.main {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #a44200;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  z-index: 900;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin-left: 100px;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.main h1 {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 15px;
+  line-height: 60px;
+  color: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 800px) {
+  header.main {
+    align-items: flex-start;
+    padding-left: 20px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+.btn-toggle-nav-closed {
+  width: 100px;
+  height: 100px;
+  margin-left: 0;
+  margin-top: 0;
+  background-color: #3c1518;
+  background-image: url("../public/logo192.png");
+  background-repeat: no-repeat;
+  background-size: 80px;
+  background-position: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+}
+
+.btn-toggle-nav-open {
+  width: 300px;
+  height: 100px;
+  margin-left: 0;
+  margin-top: 0;
+  background-color: #3c1518;
+  background-image: url("../public/logo192.png");
+  background-repeat: no-repeat;
+  background-size: 80px;
+  background-position: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+}
+
+.btn-toggle-nav-closed:hover {
+  background-color: #69140e;
+}
+
+.btn-toggle-nav-open:hover {
+  background-color: #69140e;
+}
+
+.sidebar-closed {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 90px;
+  height: calc(100vh - 100px);
+  padding: 0 5px;
+  background-color: #a44200;
+  z-index: 900;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar-open {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 290px;
+  height: calc(100vh - 100px);
+  padding: 0 5px;
+  background-color: #a44200;
+  z-index: 900;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar-open ul {
+  padding-top: 15px;
+  overflow: hidden;
+  visibility: visible;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar-open ul li {
+  line-height: 60px;
+  list-style: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar-open ul li span, .sidebar-open ul li button {
+  display: block;
+  height: 60px;
+  padding: 0 10px;
+  background-color: #a44200;
+  border: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: arial;
+  font-size: 16px;
+  white-space: nowrap;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar-open ul li button:hover {
+  background-color: #3c1518;
 }
