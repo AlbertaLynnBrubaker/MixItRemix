@@ -19,7 +19,7 @@ const FirstLetterForm = ({onFirstLetterFetchSubmission}) => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letterDropdown.toLowerCase()}`)
       .then(r => r.json())
       .then(newSubmission => {
-        onFirstLetterFetchSubmission(newSubmission)
+        onFirstLetterFetchSubmission(newSubmission.drinks)
       })
   }, [letterDropdown])
 

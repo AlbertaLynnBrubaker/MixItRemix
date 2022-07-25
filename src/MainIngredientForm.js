@@ -18,7 +18,7 @@ const MainIngredientForm = ({onMainIngredientFetchSubmission}) => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredientFormSubmit.toLowerCase()}`)
       .then(r => r.json())
       .then(newSubmission => {
-        onMainIngredientFetchSubmission(newSubmission);
+        onMainIngredientFetchSubmission(newSubmission.drinks);
       })
   },[ingredientFormSubmit])
 

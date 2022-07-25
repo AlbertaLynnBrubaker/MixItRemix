@@ -18,7 +18,7 @@ const NameForm = ({onNameFetchSubmission}) => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${nameFormSubmit.toLowerCase()}`)
       .then(r => r.json())
       .then(newSubmission => {
-        onNameFetchSubmission(newSubmission)
+        onNameFetchSubmission(newSubmission.drinks)
       })
   },[nameFormSubmit])
 
