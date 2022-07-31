@@ -6,7 +6,7 @@ const RandomCocktail = ({onRandomCocktailFetchSubmission}) => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
       .then(r => r.json())
       .then(newSubmission => {
-        onRandomCocktailFetchSubmission(newSubmission.drinks)
+        onRandomCocktailFetchSubmission(newSubmission.drinks[0])
       })
   },[])
 

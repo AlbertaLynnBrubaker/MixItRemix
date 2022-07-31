@@ -25,19 +25,16 @@ function App() {
   }
 
   const handleDrinkSelection = (drink) => {
-    return (
-      setDrinkSelection(() => drink)
-    )
+    setDrinkSelection(() => drink)
   }
 
-
-  console.log(drinkSelection)
   return (
     <div className="App">
       <Header 
         toggleNavStatus={toggleNavStatus} 
         selectForm={selectForm}
         onFetchSubmission={handleFetchSubmission}
+        onDrinkSelection= {handleDrinkSelection}
       />
       <Sidebar 
         toggleNavStatus={toggleNavStatus} 
@@ -45,10 +42,11 @@ function App() {
         onFormSelect= {handleFormSelect}
       />
       <div id={toggleNavStatus ? "drinks-container-sidebar-open" :"drinks-container"}>
-        <DrinksList 
+        {selectForm !== "randomCocktail" && selectForm !== "" ? <DrinksList 
           onDrinkSelection={handleDrinkSelection} 
           drinks={submission}
-        />
+        /> : null}
+        {drinkSelection !== "" ? <DrinkDetails drinkSelection={drinkSelection}/> : null}
       </div>
     </div>
   );

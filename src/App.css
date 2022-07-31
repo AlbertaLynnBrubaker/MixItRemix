@@ -53,6 +53,14 @@ header.main-sidebar-open {
   color: #fff;
 }
 
+.main-sidebar-open h1 {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 15px;
+  line-height: 60px;
+  color: #fff;
+}
+
 @media (max-width: 800px) {
   header.main {
     align-items: flex-start;
@@ -216,6 +224,17 @@ header.main-sidebar-open {
 
 .drink-thumb {
   width: 50px;
+  height: auto;
+}
+
+#drink-details {
+  width: 50%;
+  padding-left: 5%;
+  padding-right: 15%;
+}
+
+.detail-image {
+  width: 360px;
   height: auto;
 }
 

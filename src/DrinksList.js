@@ -1,29 +1,21 @@
-
+import Drink from "./Drink"
 
 const DrinksList = ({onDrinkSelection, drinks}) => {
-  console.log(drinks)
 
   const handleDrinkClick = (e) => {
-    onDrinkSelection(e.target.dataset.value)
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${e.target.dataset.value.toLowerCase()}`)
+      .then(r => r.json())
+      .then(drinkSelection => onDrinkSelection(drinkSelection.drinks[0]))
   }
 
   const drinksList = drinks.map(drink => {
-      return (
-        <li 
-          key={drink.idDrink}
-          onClick={handleDrinkClick} 
-          data-value={drink.strDrink} 
-          className="drink-list-item"
-        >
-          <img className="drink-thumb" data-value={drink.strDrink} src={drink.strDrinkThumb} alt= {drink.strDrink}></img>
-          <h3 data-value={drink.strDrink}>{drink.strDrink}</h3>
-        </li>
-      )
+      return <Drink key={drink.IdDrink} drink={drink} handleDrinkClick={handleDrinkClick} />
   })
 
+  
   return (
     <>
-      {drinks ? <div id="drinks-list">{drinksList}</div> : null}
+      {drinks.length ? <div id="drink-list" style={{display: 'block'}}>{drinksList}</div> : null}
     </>
   )
 }

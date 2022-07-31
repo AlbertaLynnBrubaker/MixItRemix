@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 const FirstLetterForm = ({onFirstLetterFetchSubmission}) => {
   const [letterDropdown, setLetterDropdown] = useState("A")
@@ -15,7 +15,7 @@ const FirstLetterForm = ({onFirstLetterFetchSubmission}) => {
     setLetterDropdown(() => e.target.value)
   }
 
-  useEffect( () => {
+  useEffect(() => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letterDropdown.toLowerCase()}`)
       .then(r => r.json())
       .then(newSubmission => {
@@ -23,9 +23,15 @@ const FirstLetterForm = ({onFirstLetterFetchSubmission}) => {
       })
   }, [letterDropdown])
 
+  console.log(letterDropdown)
+
   return(
-    <select className='search' value={letterDropdown} id='letter-dropdown' onChange={handleLetterSelect}>
-      <option disabled>Choose a Letter</option>
+    <select 
+      className='search' 
+      value={letterDropdown} 
+      id='letter-dropdown' 
+      onChange={handleLetterSelect}
+    >
       {alphabet.map(letter => {return <option key={letter} value={letter}>{letter}</option> })}
     </select>
   )

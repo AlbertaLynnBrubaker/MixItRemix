@@ -3,7 +3,7 @@ import MainIngredientForm from "./MainIngredientForm";
 import RandomCocktail from "./RandomCocktail";
 import NameForm from "./NameForm";
 
-const Header = ({onFetchSubmission, toggleNavStatus, selectForm}) => {
+const Header = ({onDrinkSelection, onFetchSubmission, toggleNavStatus, selectForm}) => {
 
   const handleRenderForm = () => {  
     switch (selectForm) {
@@ -30,8 +30,8 @@ const Header = ({onFetchSubmission, toggleNavStatus, selectForm}) => {
     onFetchSubmission(newSubmission)
   }
 
-  const onRandomCocktailFetchSubmission = (newSubmission) => {
-    onFetchSubmission(newSubmission)
+  const onRandomCocktailFetchSubmission = (drink) => {
+    onDrinkSelection(drink)
   }
 
   return (
